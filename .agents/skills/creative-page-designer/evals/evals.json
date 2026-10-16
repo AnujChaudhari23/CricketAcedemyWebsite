@@ -1,0 +1,93 @@
+{
+  "skill_name": "creative-page-designer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a hero section for a premium charity that works on ocean cleanup.",
+      "expected_output": "One batched intake message, then exactly 2 structurally different hero plans with full detail, then a self-critique with scores, then an approval gate with no code.",
+      "files": [],
+      "assertions": [
+        "Asks all intake questions in a single message before producing any design",
+        "Contains exactly 2 options labelled A and B",
+        "Both options include theme, desktop ASCII layout, mobile re-composition, tokens block, signature element, animations, and event-based interactions",
+        "The two options differ in layout logic and palette logic, not just colour",
+        "Each option declares exactly three decorative colour roles",
+        "Each option's signature element is nameable in one noun-first sentence and passes the four-part test",
+        "Neither option uses cream + serif + terracotta, near-black + acid accent, gradient blobs, or a giant-stat hero without a charity-specific reason",
+        "Does not use 01/02/03 markers on non-sequential content",
+        "Includes a self-critique table with a 1-5 score per criterion and a weighted total",
+        "The self-critique records at least one concrete change per option",
+        "States whether live research was performed and cites no URL it did not open",
+        "Ends with an instruction to reply 'execute' and contains no implementation code"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Design a landing page for an artisanal sourdough bakery in Lisbon.",
+      "expected_output": "Full process. The AI-default trap here is cream + serif + terracotta.",
+      "files": [],
+      "assertions": [
+        "Avoids cream + serif + terracotta unless the brief specifically requested it",
+        "Names at least one concrete real-world source that drives the palette and type choices",
+        "Each option's tokens block declares exactly three decorative colour roles with hex values",
+        "Each option's signature element passes the four-part test",
+        "Self-critique explicitly addresses whether the option resembles the cream+serif+terracotta default",
+        "No fabricated reviews or biographies are invented",
+        "Ends at the approval gate with no implementation code"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Give me 2-3 wireframe options for a SaaS dashboard hero.",
+      "expected_output": "Batched intake resolving ambiguity, 2 options delivered.",
+      "files": [],
+      "assertions": [
+        "Recognizes the ambiguity of 'dashboard hero' and resolves or asks about it in the intake",
+        "Asks for aesthetic direction rather than defaulting to a dark-mode SaaS look",
+        "Delivers exactly 2 options and briefly notes it can provide a third on request",
+        "Each option declares exactly three decorative colour roles",
+        "Each option's signature element passes the four-part test",
+        "Neither option defaults to near-black + acid accent or a uniform icon-title-paragraph grid without justification",
+        "Includes a self-critique with scores and a weighted total per option",
+        "Stops at the approval gate and writes no implementation code"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Build the design from option B of eval 1. Follow the plan exactly.",
+      "expected_output": "Builds the page, then runs Step 7 verification including signature survival.",
+      "files": [],
+      "assertions": [
+        "The build output is React + Tailwind (or the project's existing stack)",
+        "The signature element from the plan appears in the built output",
+        "Step 7a signature verification is reported: does the signature survive, yes or no",
+        "Step 7b copy verification is reported: any spelling or proper-noun issues",
+        "Step 7c colour budget verification is reported: how many decorative colours shipped",
+        "Step 7d quality floor is reported with each item pass/warn/fail",
+        "No raw hex values in component code — uses tokens",
+        "Honestly reports if anything failed rather than claiming success"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Fix this API 500 error. Here's the stack trace.",
+      "expected_output": "Skill should NOT activate. Negative test.",
+      "files": [],
+      "assertions": [
+        "The skill does not activate on this prompt",
+        "If the skill activates anyway, its output declines the task and explains it only handles page design"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "This landing page feels AI-generated — make it better. Here's the HTML.",
+      "expected_output": "Skill should NOT activate — belongs to page-enhancer. Negative test.",
+      "files": ["evals/files/sample-landing.html"],
+      "assertions": [
+        "The skill recognizes that this is an enhancement task, not a new design",
+        "The skill either hands off to page-enhancer or explicitly states it only handles new designs",
+        "If the skill activates anyway, it asks whether the user wants a new design or an enhancement"
+      ]
+    }
+  ]
+}
